@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Free QR Code Generator Online | Qodvex</title>
+<meta name="description" content="Create free QR codes for URLs, text, Wi-Fi, email, phone numbers, and contacts. Customize QR size and colours, then download your code.">
+<!-- After buying your domain add: <link rel="canonical" href="https://YOUR-DOMAIN.com/"> -->
+<meta property="og:title" content="Free QR Code Generator Online | Qodvex">
+<meta property="og:description" content="Create, customize and download QR codes in your browser.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="style.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Qodvex QR Code Generator","applicationCategory":"UtilitiesApplication","operatingSystem":"Any (web browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+</head>
+<body>
+<a class="skip" href="#generator">Skip to generator</a>
+<header class="hdr"><div class="wrap bar">
+<a class="logo" href="index.html" aria-label="Qodvex home"><svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><rect width="28" height="28" rx="6" fill="#2563EB"/><path fill="#fff" d="M5 5h8v8H5zM15 5h8v8h-8zM5 15h8v8H5zM15 15h4v4h-4zM21 21h2v2h-2z"/><path fill="#2563EB" d="M7 7h4v4H7zM17 7h4v4h-4zM7 17h4v4H7z"/></svg>Qodvex</a>
+<button class="menu" id="menu" aria-expanded="false" aria-controls="nav">Menu</button>
+<nav id="nav" aria-label="Main"><a href="#generator">QR Generator</a><a href="#how">How It Works</a><a href="#faq">FAQ</a><a href="about.html">About</a><a class="btn" id="gen" href="#generator">Generate QR</a></nav>
+</div></header>
+<main>
+<section class="hero wrap"><h1>Free QR Code Generator</h1>
+<p>Create custom QR codes for links, text, Wi-Fi, contact details, and more. Customize your design and download your QR code in seconds.</p>
+<p class="muted">QR codes are generated in your browser. Your content is not uploaded.</p></section>
+
+<section id="generator" class="wrap gen" aria-labelledby="gh">
+<div class="panel"><h2 id="gh">Create your QR code</h2>
+<div class="field"><label for="type">Content type</label>
+<select id="type"><option value="url">Website URL</option><option value="text">Plain text</option><option value="wifi">Wi-Fi network</option><option value="email">Email</option><option value="phone">Phone number</option><option value="sms">SMS message</option><option value="vcard">Contact (vCard)</option><option value="wa">WhatsApp</option><option value="geo">Location (coordinates)</option></select></div>
+<div id="fields"></div>
+<h3>Customize</h3>
+<div class="row">
+<div class="field"><label for="size">Size (px, 128-2048)</label><input id="size" type="number" inputmode="numeric" list="sizes" value="512" min="128" max="2048"><datalist id="sizes"><option value="128"><option value="192"><option value="256"><option value="384"><option value="512"><option value="1024"></datalist><p class="err" id="e-size"></p></div>
+<div class="field"><label for="margin">Margin (modules, 0-16)</label><input id="margin" type="number" inputmode="numeric" value="4" min="0" max="16"><p class="err" id="e-margin"></p></div></div>
+<div class="row">
+<div class="field"><label for="fg">Foreground</label><div class="cl"><input id="fg" type="color" value="#111827" aria-label="Foreground colour picker"><input id="fgHex" type="text" value="#111827" maxlength="7" aria-label="Foreground hex value" spellcheck="false"></div><p class="err" id="e-fg"></p></div>
+<div class="field"><label for="bg">Background</label><div class="cl"><input id="bg" type="color" value="#ffffff" aria-label="Background colour picker"><input id="bgHex" type="text" value="#ffffff" maxlength="7" aria-label="Background hex value" spellcheck="false"></div><p class="err" id="e-bg"></p></div></div>
+<div class="row">
+<div class="field"><label for="ecl">Error correction</label><select id="ecl"><option value="L">L - Low (7%)</option><option value="M" selected>M - Medium (15%)</option><option value="Q">Q - Quartile (25%)</option><option value="H">H - High (30%)</option></select><p class="hint">Higher levels survive damage better but make the code denser.</p></div>
+<div class="field"><label for="fname">File name (optional)</label><input id="fname" type="text" placeholder="qodvex-qr" maxlength="60"></div></div>
+<button class="btn ghost" id="reset" type="button">Reset</button></div>
+
+<div class="panel prev"><h2>Preview</h2>
+<div id="qrwrap"><canvas id="canvas" width="256" height="256" hidden aria-label="Generated QR code"></canvas></div>
+<p id="empty" class="muted">Enter your content to see the QR code here.</p>
+<p id="info" class="muted"></p>
+<div class="acts"><button class="btn" id="dlPng" type="button" disabled>Download PNG</button><button class="btn ghost" id="dlSvg" type="button" disabled>Download SVG</button><button class="btn ghost" id="copy" type="button" disabled>Copy image</button><button class="btn ghost" id="print" type="button" disabled>Print</button></div>
+<p id="status" role="status" aria-live="polite"></p>
+<p class="hint">A generated code is not automatically safe. Check the destination before sharing or scanning, and always test-scan before printing.</p></div>
+</section>
+<noscript><p class="wrap err">JavaScript is required to generate QR codes.</p></noscript>
+
+<section id="how" class="wrap sec"><h2>How It Works</h2><ol><li>Select a QR code type.</li><li>Enter the required information.</li><li>Customize size, colours, margin and error correction.</li><li>Download and test your QR code with your phone.</li></ol></section>
+
+<section class="wrap sec"><h2>Features</h2><ul><li>Nine content types: URL, text, Wi-Fi, email, phone, SMS, vCard, WhatsApp and location.</li><li>Custom size, colours, margin and error correction.</li><li>Real PNG and SVG downloads, copy to clipboard (where supported) and printing.</li><li>Generated locally with a bundled library. No account needed.</li></ul>
+<h3>Printing and testing guide</h3><p>Keep strong contrast between dark modules and a light background, leave the quiet-zone margin intact, and print no smaller than about 2 cm wide. Scan the final printed copy with at least two phones before distributing it.</p></section>
+
+<section id="faq" class="wrap sec"><h2>FAQ</h2>
+<details><summary>Is Qodvex free?</summary><p>Yes. You can generate and download QR codes without an account.</p></details>
+<details><summary>Is my data uploaded?</summary><p>No. The QR code is built in your browser, and your content is not sent to a server by this tool.</p></details>
+<details><summary>Will my QR code expire?</summary><p>No. The code stores your content directly, so it works as long as the destination (such as a website) still exists.</p></details>
+<details><summary>Which error correction level should I use?</summary><p>M suits most uses. Choose Q or H for printed codes that may get scuffed, keeping in mind the code becomes denser.</p></details>
+<details><summary>Why won't my QR code scan?</summary><p>Check contrast, margin, size and whether the content is very long. Dark foreground on a light background scans best.</p></details></section>
+</main>
+<footer class="ftr"><div class="wrap"><nav aria-label="Footer"><a href="#generator">QR Generator</a><a href="privacy-policy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a><a href="about.html">About Us</a><a href="contact.html">Contact Us</a></nav>
+<p>&copy; 2026 Qodvex. Made by <strong>Code With Zain</strong>.</p></div></footer>
+<script src="assets/qrcode.js" defer></script>
+<script src="script.js" defer></script>
+</body>
+</html>
